@@ -1,11 +1,11 @@
 import Container from "./lessons/1.Le-JSX/Container"
 
-function App() {
+
 
 function App() {
   return (
     <div className="main-content">
-      <h1>App composant racine</h1>
+      <h1>Cours react</h1>
       <Container/>
     </div>
   )
