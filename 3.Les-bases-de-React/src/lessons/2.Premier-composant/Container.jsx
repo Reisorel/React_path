@@ -1,7 +1,14 @@
+import ListItem from "./ListItem"
+
 export default function Container() {
   return (
-    <div>
-      <h1>Premier Composant</h1>
-    </div>
+    <ul>
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+      <ListItem />
+    </ul>
   )
 }

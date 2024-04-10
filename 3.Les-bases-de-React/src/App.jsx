@@ -1,6 +1,4 @@
-import Container from "./lessons/1.Le-JSX/Container"
-
-
+import Container from "./lessons/3.utiliser-des-événements/Container"
 
 function App() {
   return (
