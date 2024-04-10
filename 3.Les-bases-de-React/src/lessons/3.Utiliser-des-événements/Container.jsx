@@ -1,4 +1,9 @@
 export default function Container() {
+
+function handleClick() {
+  console.log("click - fonction simple");
+}
+
 function handleClickWithId(id){
   console.log((id));
 }
@@ -24,11 +29,11 @@ function handleClickWithIdAndEventObject(e,id) {
 
       {/* On lui préfère en général ceci */}
 
-      <button onClick={() => handleClick}>Click</button>
+      <button onClick={handleClick}>Click</button>
 
       {/* Attention, si on veut passer un argument, il faut obligatoirement utiliser une fonction anonyme */}
 
-      <button onClick={() => handleClickWithId}>Click</button>
+      <button onClick={() => handleClickWithId(666)}>Click</button>
 
       {/* Si on veut l'objet d'évènement ET passer un ou des arguments, on code ceci */}
       <button onClick={e => handleClickWithIdAndEventObject(e, 345234)}>Click</button>
