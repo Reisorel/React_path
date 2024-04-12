@@ -1,4 +1,4 @@
-import Container from "./lessons/5.Les-props/Container"
+import Container from "./lessons/6.Utiliser-du-CSS/Container"
 
 function App() {
   return (
