@@ -1,35 +1,37 @@
 function Container() {
 
+  const txt = "Test"
   function handleClick(e) {
-    console.log("Click", e)
-  }
+    console.log("Click", e);
+  };
 
-  return <div>
-    <p>Hello Palapapa</p>
-    <ul className="li">
-      <li>item</li>
-      <li>item</li>
-      <li>item</li>
-    </ul>
-    <p>{10 + 10}</p>
-    <p>{"ab" + "c"}</p>
-    <p>{"le chat saute !".toUpperCase()}</p>
-    {/* <p>{[<span>Hello World</span>]}</p> */}
+  return (
+    <div>
+      <p>Hello World</p>
+      <ul className="list">
+        <li>item</li>
+        <li>item</li>
+      </ul>
+      <button>Valider</button>
+      <p>{10 + 10}</p>
+      <p>{"ab" +"c"}</p>
+      <p>{"Le chat saute".toUpperCase()}</p>
+      <p>{txt}</p>
+      <p>{[1,2,3,4]}</p>
+      <input type="text" />
+      <hr />
+      <img src="" alt="" />
 
-    <input type="text" />
-    <hr />
-    <img src="" alt="" />
-    <hr />
-    <img srv="" alt="" />
-    <p className="txt">Lorem Ipsum</p>
-    <label htmlFor=""></label>
-    <button aria-label="toggle button"></button>
+      <p className="txt">Lorem Ipsum</p>
 
-    <button className="btn" onClick={handleClick}>Click</button>
-
-  </div>
+      <button className="btn" onClick={handleClick}>Bouton handleClick</button>
+    </div>
+  )
 }
 export default Container
 
+
+// Toujours retourner un seul élément. Une seule éxecution de la méthode JSX.
+// Retourner un élément avec plusieurs composants
 // Les éléments auto-fermant en HTML doivent être fermés
-// la div retourne ici une seule éxecution de la fonction JSX
+// Le JSX est un html boosté. 

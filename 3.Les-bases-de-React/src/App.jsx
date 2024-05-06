@@ -1,12 +1,15 @@
-import Container from "./lessons/6.Utiliser-du-CSS/Container"
+import Container from "./lessons/2.Premier-composant/Container"
 
 function App() {
   return (
     <div className="main-content">
-      <h1>Cours react</h1>
+      <h1>Cours React</h1>
       <Container/>
     </div>
   )
 }
 
 export default App
+
+// On retourne l'élément div qui retourne tout le reste.
+// Toujours retourner qu'un seul élément. Execution de la méthode JSX.
