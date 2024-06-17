@@ -1,5 +1,5 @@
 export default function ListItem() {
   return (
-    <div>Babidi</div>
+    <div>BonArami</div>
   )
 }

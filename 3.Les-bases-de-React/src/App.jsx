@@ -1,10 +1,10 @@
-import Container from "./lessons/2.Premier-composant/Container"
+import Container from "./lessons/3.Utiliser-des-événements/Container"
 
 function App() {
   return (
     <div className="main-content">
-      <h1>Cours React</h1>
-      <Container/>
+      <h1>Cours react</h1>
+      <Container />
     </div>
   )
 }
