@@ -5,8 +5,8 @@ export default function Container() {
 
   return (
     <div>
-      <h1 style={{color: "crimson", backgroundColor:"#333"}}>Utiliser du CSS</h1>
-      <p className="txt">Premier pas avec react</p>
+      <h1 style = {{color: "crimson", backgroundColor: bgColor}}>Utiliser du CSS</h1>
+      <p className="txt">Hola bobo</p>
     </div>
   )
 }

@@ -2,15 +2,13 @@ import { useState } from "react"
 import Card from "./Card"
 
 export default function Container() {
-
-  const [state, setState] = useState("Hello word")
-  const id = 4215
-
+  const [state, setState] = useState("Hello Bobyduy")
+  const id = 23543
 
   return (
     <div>
-      <p>State du container : {state}</p>
-      <Card id={id} state={state} changeState={setState}/>
+      <p>State du containeur: {state} </p>
+      <Card id = {id} state={state} changeState={setState}/>
     </div>
   )
 }
