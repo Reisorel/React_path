@@ -1,9 +1,9 @@
-import Container from "./lessons/12.Toggle-une-classe-ou-du-CSS/Container"
+import Container from "./lessons/13.useRef/Container"
 
 function App() {
   return (
     <div className="main-content">
-      {/* <p>Cours React</p> */}
+      <p>Cours React</p>
       <Container />
     </div>
   )
