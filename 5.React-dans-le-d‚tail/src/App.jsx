@@ -1,5 +1,5 @@
 
-import Container from "./lessons/7.Utiliser-un-observateur/Container"
+import Container from "./lessons/16.Utiliser-TailwindCSS/Container"
 function App() {
 
   return (
