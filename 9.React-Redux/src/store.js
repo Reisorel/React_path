@@ -5,13 +5,15 @@ import fruitsCart from "./features/fruitsCart";
 import { addOne } from "./features/fruitsCart"; // Importez l'action addOne
 import logger from "redux-logger"
 import users from "./features/users";
+import chrono from "./features/chrono";
 
 export const store = configureStore({
   reducer: {
     counter,
     fruits,
     fruitsCart,
-    users
+    users,
+    chrono
   },
   // middleware: (getDefaultMiddleware) =>
   //   getDefaultMiddleware().concat(logger),
