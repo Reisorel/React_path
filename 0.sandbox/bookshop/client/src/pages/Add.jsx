@@ -19,7 +19,7 @@ export default function Add() {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/books", {
+      const response = await fetch("http://localhost:3000/books", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

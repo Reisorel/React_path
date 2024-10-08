@@ -1,9 +1,10 @@
 import express from "express";
 import mysql from "mysql2";
-import cors from "cors"
+import cors from "cors";
 
 const app = express();
 
+// Configuration de la connexion à la base de données
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -11,19 +12,33 @@ const db = mysql.createConnection({
   database: "test",
 });
 
-app.use(express.json())
-app.use(cors())
+// Vérifier la connexion à la base de données
+db.connect((err) => {
+  if (err) {
+    console.error("Erreur de connexion à la base de données :", err.message);
+  } else {
+    console.log("Connexion réussie à la base de données MySQL !");
+  }
+});
+
+app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => res.json("Hello, this is the backend"));
 
+// Endpoint pour récupérer les livres
 app.get("/books", (req, res) => {
   const q = "SELECT * FROM books";
   db.query(q, (err, data) => {
-    if (err) return res.json(err);
+    if (err) {
+      console.error("Erreur lors de la récupération des livres :", err);
+      return res.status(500).json({ message: "Erreur lors de la récupération des livres" });
+    }
     return res.json(data);
   });
 });
 
+// Endpoint pour ajouter un livre
 app.post("/books", (req, res) => {
   try {
     console.log("Received request body:", req.body);
@@ -33,7 +48,8 @@ app.post("/books", (req, res) => {
       req.body.title,
       req.body.desc,
       req.body.price,
-      req.body.cover];
+      req.body.cover
+    ];
 
     db.query(q, values, (err, data) => {
       if (err) {
@@ -49,17 +65,18 @@ app.post("/books", (req, res) => {
   }
 });
 
-
+// Endpoint pour supprimer un livre
 app.delete("/books/:id", (req, res) => {
   const bookId = req.params.id;
   const q = "DELETE from books WHERE id = ?";
 
-  db.query(q, [bookId], (err, data) =>{
+  db.query(q, [bookId], (err, data) => {
     if (err) return res.json(err);
     return res.json("Book has been deleted successfully");
-  })
-})
+  });
+});
 
+// Endpoint pour modifier un livre
 app.put("/books/:id", (req, res) => {
   const bookId = req.params.id;
   const q = "UPDATE books SET `title`= ?, `desc`= ?, `price`= ?, `cover`= ? WHERE id = ?";
@@ -81,7 +98,12 @@ app.put("/books/:id", (req, res) => {
   });
 });
 
-app.listen(5000, () => {
+
+const port = 3000
+// Démarrer le serveur et afficher le lien cliquable
+app.listen(port, () => {
+  const serverUrl = `http://localhost:${port}`;
   console.log("Connected to backend baby !");
-  console.log("Le serveur écoute bien sur le port 5000");
+  console.log(`Le serveur écoute bien sur le por ${port}`);
+  console.log(`Cliquez ici pour afficher le serveur : ${serverUrl}`);
 });

@@ -7,11 +7,13 @@ export default function Books() {
   useEffect(() => {
     const fetchAllBooks = async () => {
       try {
-        const res = await fetch("http://localhost:5000/books");
+        console.log("Fetching books from backend...");
+        const res = await fetch("http://localhost:3000/books");
         const data = await res.json();
+        console.log("Data received from backend:", data); // Log les données reçues
         setBooks(data); // Met à jour l'état avec les données reçues
       } catch (err) {
-        console.log(err);
+        console.log("Error while fetching books:", err);
       }
     };
     fetchAllBooks();
@@ -19,12 +21,13 @@ export default function Books() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch("http://localhost:5000/books/" + id, {
+      await fetch("http://localhost:3000/books/" + id, {
         method: "DELETE",
       });
-      window.location.reload();
+      console.log(`Book with ID ${id} deleted successfully.`);
+      setBooks(books.filter((book) => book.id !== id)); // Met à jour l'état sans recharger la page
     } catch (err) {
-      console.log(err);
+      console.log("Error while deleting book:", err);
     }
   };
 
@@ -41,8 +44,7 @@ export default function Books() {
             <button className="delete" onClick={() => handleDelete(book.id)}>
               Delete
             </button>
-            <button
-            className="update">
+            <button className="update">
               <Link to={`/update/${book.id}`}>Update</Link>
             </button>
           </div>
