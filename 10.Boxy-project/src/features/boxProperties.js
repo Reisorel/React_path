@@ -8,7 +8,6 @@ const initialState = [
     value: 25,
     type: "range",
     minMax: [0, 250],
-    slice: "boxProperties",
   },
   {
     inputNumber: 2,
@@ -16,7 +15,6 @@ const initialState = [
     value: 250,
     type: "range",
     minMax: [0, 500],
-    slice: "boxProperties",
   },
   {
     inputNumber: 3,
@@ -24,14 +22,12 @@ const initialState = [
     value: 250,
     type: "range",
     minMax: [0, 500],
-    slice: "boxProperties",
   },
   {
     inputNumber: 4,
     name: "Background Color",
     value: "#fff",
-    type: "color ",
-    slice: "boxProperties",
+    type: "color",
   },
 ];
 
@@ -39,9 +35,9 @@ export const boxSlice = createSlice({
   name: "boxProperties",
   initialState,
   reducers: {
-    removeShadow: (state, action) => {
-
-    },
+    updateBoxValue: (state, action) => {
+      state.find(el => el.inputNumber === action.payload.inputNumber).value = action.payload.value
+    }
   },
 });
 

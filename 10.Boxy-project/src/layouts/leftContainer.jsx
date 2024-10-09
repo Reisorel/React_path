@@ -6,13 +6,13 @@ export default function LeftContainer() {
   const [tabs, setTabs] = useState(0);
 
   const tabsList = [
-    { name: "Shadow", component: <ShadowList/> },
-    { name: "BoxPanel", component: <BoxPanel /> }
-  ]
+    { name: "Shadow", component: <ShadowList /> },
+    { name: "BoxPanel", component: <BoxPanel /> },
+  ];
 
   return (
     <div
-    className="relative mt-20 w-[600px] h-[550px] border
+      className="relative mt-20 w-[600px] h-[550px] border
     rounded-b rounded-tr border-gray-300 shadow-xl
     bg-gray-50 md:mt-0"
     >
@@ -32,9 +32,8 @@ export default function LeftContainer() {
           </button>
         ))}
       </div>
-      <div>
-        {tabsList[tabs].component}
-      </div>
+      <div className="h-full overflow-auto"
+      >{tabsList[tabs].component}</div>
     </div>
   );
 }
